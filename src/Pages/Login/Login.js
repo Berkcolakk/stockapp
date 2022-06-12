@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react'
+import React, {  useEffect } from 'react'
 import LoginComponent from '../../Components/Login/Login';
 import { useNavigate  } from "react-router-dom";
 const Login = () => {
