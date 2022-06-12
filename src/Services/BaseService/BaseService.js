@@ -1,0 +1,1 @@
+export const BaseFetcher = (url) => fetch(url).then((res) => res.json());
