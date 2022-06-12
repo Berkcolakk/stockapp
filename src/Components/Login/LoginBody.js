@@ -12,13 +12,18 @@ import Typography from '@mui/material/Typography';
 import { useDispatch } from "react-redux";
 import TextField from '@mui/material/TextField';
 import Checkbox from '@mui/material/Checkbox';
+import { useNavigate } from "react-router-dom";
 
 export const LoginBody = (state) => {
     state = state.props;
+    const navigate = useNavigate();
     const dispatch = useDispatch();
     const HandleUserLogin = (event) => {
         event.preventDefault();
-        UserLoginModule({ UserName: state.UserName, Password: state.Password });
+        const isLogin = UserLoginModule({ UserName: state.UserName, Password: state.Password });
+        if (isLogin) {
+            navigate("/");
+        }
     };
     return (
         <Box

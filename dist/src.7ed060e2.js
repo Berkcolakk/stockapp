@@ -74007,6 +74007,7 @@ const UserLoginModule = _ref => {
     Age: "24",
     "DateOfBirth": "28.02.1998"
   }));
+  return true;
 };
 
 exports.UserLoginModule = UserLoginModule;
@@ -89236,6 +89237,8 @@ var _TextField = _interopRequireDefault(require("@mui/material/TextField"));
 
 var _Checkbox = _interopRequireDefault(require("@mui/material/Checkbox"));
 
+var _reactRouterDom = require("react-router-dom");
+
 var _jsxRuntime = require("react/jsx-runtime");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -89246,14 +89249,19 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 
 const LoginBody = state => {
   state = state.props;
+  const navigate = (0, _reactRouterDom.useNavigate)();
   const dispatch = (0, _reactRedux.useDispatch)();
 
   const HandleUserLogin = event => {
     event.preventDefault();
-    (0, _Login2.UserLoginModule)({
+    const isLogin = (0, _Login2.UserLoginModule)({
       UserName: state.UserName,
       Password: state.Password
     });
+
+    if (isLogin) {
+      navigate("/");
+    }
   };
 
   return /*#__PURE__*/(0, _jsxRuntime.jsxs)(_Box.default, {
@@ -89344,7 +89352,7 @@ const LoginBody = state => {
 exports.LoginBody = LoginBody;
 var _default = LoginBody;
 exports.default = _default;
-},{"../../Stores/Reducers/Login/Login":"../src/Stores/Reducers/Login/Login.js","../../Modules/Login/Login":"../src/Modules/Login/Login.js","react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/FormControlLabel":"../node_modules/@mui/material/FormControlLabel/index.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/icons-material/LockOutlined":"../node_modules/@mui/icons-material/LockOutlined.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","react-redux":"../node_modules/react-redux/es/index.js","@mui/material/TextField":"../node_modules/@mui/material/TextField/index.js","@mui/material/Checkbox":"../node_modules/@mui/material/Checkbox/index.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../src/Components/Login/Login.js":[function(require,module,exports) {
+},{"../../Stores/Reducers/Login/Login":"../src/Stores/Reducers/Login/Login.js","../../Modules/Login/Login":"../src/Modules/Login/Login.js","react":"../node_modules/react/index.js","@mui/material/Avatar":"../node_modules/@mui/material/Avatar/index.js","@mui/material/Button":"../node_modules/@mui/material/Button/index.js","@mui/material/FormControlLabel":"../node_modules/@mui/material/FormControlLabel/index.js","@mui/material/Link":"../node_modules/@mui/material/Link/index.js","@mui/material/Grid":"../node_modules/@mui/material/Grid/index.js","@mui/material/Box":"../node_modules/@mui/material/Box/index.js","@mui/icons-material/LockOutlined":"../node_modules/@mui/icons-material/LockOutlined.js","@mui/material/Typography":"../node_modules/@mui/material/Typography/index.js","react-redux":"../node_modules/react-redux/es/index.js","@mui/material/TextField":"../node_modules/@mui/material/TextField/index.js","@mui/material/Checkbox":"../node_modules/@mui/material/Checkbox/index.js","react-router-dom":"../node_modules/react-router-dom/index.js","react/jsx-runtime":"../node_modules/react/jsx-runtime.js"}],"../src/Components/Login/Login.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -89594,7 +89602,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1109" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "1159" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
